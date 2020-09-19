@@ -9,7 +9,9 @@ class App extends Component {
     distance: "",
     gender: "female",
     age: "",
-    renderLoginForm: false
+    renderLoginForm: false,
+    authenticated: false,
+    message: ""
   };
 
   onChangeHandler = e => {
@@ -31,7 +33,6 @@ class App extends Component {
       <>
         <InputFields onChangeHandler={this.onChangeHandler} />
         {renderLogin}
-        <button id="login">Login</button>
         <DisplayCooperResult
           distance={this.state.distance}
           gender={this.state.gender}
