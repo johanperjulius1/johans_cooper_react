@@ -2,12 +2,14 @@ import React, { Component } from "react";
 
 import DisplayCooperResult from "./components/DisplayCooperResult";
 import InputFields from "./components/InputFields";
+import LoginForm from "./components/LoginForm";
 
 class App extends Component {
   state = {
     distance: "",
     gender: "female",
-    age: ""
+    age: "",
+    renderLoginForm: false
   };
 
   onChangeHandler = e => {
@@ -15,9 +17,20 @@ class App extends Component {
   };
 
   render() {
+    const renderLogin = this.state.renderLoginForm ? (
+      <LoginForm />
+    ) : (
+      <button
+        id="login"
+        onClick={() => this.setState({ renderLoginForm: true })}
+      >
+        Login
+      </button>
+    );
     return (
       <>
         <InputFields onChangeHandler={this.onChangeHandler} />
+        {renderLogin}
         <button id="login">Login</button>
         <DisplayCooperResult
           distance={this.state.distance}
