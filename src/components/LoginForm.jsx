@@ -8,7 +8,6 @@ const LoginForm = ({ submitFormHandler }) => {
 
       <label>Password</label>
       <input name="password" type="password" id="password"></input>
-
       <button id="submit">Submit</button>
     </form>
   );
